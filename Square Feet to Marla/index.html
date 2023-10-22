@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marla to Square Feet and Square Feet to Marla Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #converter {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 5px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0074d9;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="converter">
+    <h2>Marla to Square Feet and Square Feet to Marla Converter</h2>
+    <label for="marlaInput">Enter Marla:</label>
+    <input type="number" id="marlaInput" placeholder="Enter Marla" step="0.01">
+    <button id="marlaToSquareFeet">Convert to Square Feet</button>
+    <label for="squareFeetInput">Enter Square Feet:</label>
+    <input type="number" id="squareFeetInput" placeholder="Enter Square Feet" step="0.01">
+    <button id="squareFeetToMarla">Convert to Marla</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function marlaToSquareFeet(marla) {
+      const marlaToSquareFeet = 272.25;
+      return marla * marlaToSquareFeet;
+    }
+
+    function squareFeetToMarla(squareFeet) {
+      const marlaToSquareFeet = 272.25;
+      return squareFeet / marlaToSquareFeet;
+    }
+
+    const marlaToSquareFeetButton = document.getElementById("marlaToSquareFeet");
+    const squareFeetToMarlaButton = document.getElementById("squareFeetToMarla");
+    const marlaInput = document.getElementById("marlaInput");
+    const squareFeetInput = document.getElementById("squareFeetInput");
+    const result = document.getElementById("result");
+
+    marlaToSquareFeetButton.addEventListener("click", function () {
+      const marla = parseFloat(marlaInput.value);
+      const squareFeet = marlaToSquareFeet(marla);
+      result.textContent = `${marla} marla is equal to ${squareFeet} square feet.`;
+    });
+
+    squareFeetToMarlaButton.addEventListener("click", function () {
+      const squareFeet = parseFloat(squareFeetInput.value);
+      const marla = squareFeetToMarla(squareFeet);
+      result.textContent = `${squareFeet} square feet is equal to ${marla} marla.`;
+    });
+  </script>
+</body>
+</html>
